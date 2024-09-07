@@ -1,0 +1,9 @@
+MinecraftVersion: 'auto'
+FallbackLanguage: en-us
+LoadLanguage:
+  - en-us
+  - zh-cn
+# or BMCLAPI https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json
+VersionManifestUrl: 'http://launchermeta.mojang.com/mc/game/version_manifest_v2.json'
+# or BMCLAPI https://bmclapi2.bangbang93.com/assets
+ResourcesUrl: 'https://resources.download.minecraft.net/'
