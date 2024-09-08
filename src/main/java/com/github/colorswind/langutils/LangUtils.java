@@ -1,9 +1,11 @@
 package com.github.colorswind.langutils;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +15,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class LangUtils extends JavaPlugin {
+    public static final int PLUGIN_ID = 23307;
+    private Metrics metrics = null;
 
     @Override
     public void onEnable() {
@@ -64,7 +68,11 @@ public final class LangUtils extends JavaPlugin {
                 throw new RuntimeException("Fail to test lang: " + locale, e);
             }
         }
-
+        metrics = new Metrics(this, PLUGIN_ID);
     }
 
+    @Override
+    public void onDisable() {
+        metrics.shutdown();
+    }
 }
